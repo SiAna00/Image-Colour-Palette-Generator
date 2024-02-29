@@ -13,5 +13,9 @@
 .color_div {
     align-items: right;
     height: 100%;
-    width: 75%;
+    width: 100%;
+}
+
+.upload_h5 {
+    text-align: left;
 }
