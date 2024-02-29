@@ -15,54 +15,56 @@
         <div class="nav container-fluid py-3 px-4">
             <div class="row">
                 <div class="col">
-                    <h4>Color Harvest</h4>
+                    <h6>Color Harvest</h6>
                 </div>
             </div>
         </div>
         <div class="hero container-fluid py-5">
-            <div class="row text-center">
-                <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-md-3 my-5 py-5">
                     <h1>Color Harvest</h1>
-                    <h5 class="py-3 opacity-75">Uncover the Palette</h5>
-                </div>
-            </div>
-            <div class="row text-center my-4">
-                <div class="col-md-3 mx-auto">
-                    <form action="/", method="post", enctype="multipart/form-data">
+                    <h5 class="py-3 opacity-75">Uncover the palette: Explore the power of color in your images!</h5>
+                    <form class="my-4" action="/", method="post", enctype="multipart/form-data">
                         <div>
-                            <h5 class="upload_h5 mx-4 mb-3">Upload image:</h5>
+                            <h5 class="upload_h5 mb-3">Upload image:</h5>
                             <input class="border border-secondary rounded py-2 px-2" text-right type="file" id="image" name="image" accept="image/*"><br>
                         </div>
                         <input type="submit" value="Run" class="btn btn-dark my-4">
                     </form>
                 </div>
+                <div class="col-md-6">
+                    <img style="height: 600px;" src="../static/hero.png" alt="">
+                </div>
+            </div>
+            <div class="row text-center my-4">
+
             </div>
         </div>
         <div class="container-fluid text-center">
             {% if filename %}
             <div class="row my-5">
                 <div class="col mx-auto">
-                    <img class="rounded my-4" src="{{ url_for('static', filename='/uploads/' + filename) }}" style="max-height: 800px; max-width: 600px;" />
+                    <img class="rounded mt-4" src="{{ url_for('static', filename='/uploads/' + filename) }}" style="max-height: 800px; max-width: 600px;" />
                 </div>
             </div>
-            <div class="row justify-content-center g-0">
-                <div class="col-md-2 my-2 px-auto">
-                    <h5 class="color_div opacity-75">Colors</h5>
-                </div>
-                <div class="col-md-2 my-2">
-                    <h5 class="hex_code opacity-75">Hex Codes</h5>
+            <div class="row justify-content-center">
+                <div class="col-md-3 mx-auto">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="opacity-75">Colors</th>
+                                <th class="opacity-75">Hex Codes</th>
+                            </tr>
+                            {% for color in hex_colors %}
+                            <tr>
+                                <td style="background-color: {{ color }}"></td>
+                                <td class="opacity-75 font-weight-light">{{ color }}</td>
+                            </tr>
+                            {% endfor %}
+                        </thead>
+                    </table>
                 </div>
             </div>
-            {% for color in hex_colors %}
-            <div class="row justify-content-center g-0">
-                <div class="col-md-2 my-1 px-5 justify-content-end align-content-center">
-                    <div class="color_div" style="background-color: {{ color }}"></div>
-                </div>
-                <div class="col-md-2 my-1">
-                    <h6 class="hex_code opacity-75">{{ color }}</h6>
-                </div>
-            </div>
-            {% endfor %}
             {% else %}
             <div class="row my-5">
                 <div class="col mx-auto">
@@ -70,7 +72,6 @@
                 </div>
             </div>
             {% endif %}
-            
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
