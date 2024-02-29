@@ -1,0 +1,17 @@
+.nav {
+    background-color: #FFD1FE;
+}
+
+.hero {
+    background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+}
+
+.body {
+    background-color: #FFFBF5;
+}
+
+.color_div {
+    align-items: right;
+    height: 100%;
+    width: 75%;
+}
